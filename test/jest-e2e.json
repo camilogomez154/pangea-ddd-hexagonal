@@ -12,6 +12,8 @@
   },
   "moduleNameMapper": {
     "@libs/configuration/(.*)": "<rootDir>/../libs/configuration/src/$1",
-    "@libs/configuration": "<rootDir>/../libs/configuration/src"
+    "@libs/configuration": "<rootDir>/../libs/configuration/src",
+    "@libs/database/(.*)": "<rootDir>/../libs/database/src/$1",
+    "@libs/database": "<rootDir>/../libs/database/src"
   }
 }

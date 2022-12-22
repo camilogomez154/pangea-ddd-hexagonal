@@ -1,15 +1,15 @@
 import { ConfigurationService } from '@libs/configuration';
+import { SqliteService } from '@libs/database';
+import { User } from '@libs/database/sqlite/entities';
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService, configurationService: ConfigurationService) {
-    console.log("AppController", configurationService.default);
-  }
+  constructor(private readonly sqliteService: SqliteService) { }
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  getHello() {
+    return this.sqliteService.users.findAll();
   }
 }

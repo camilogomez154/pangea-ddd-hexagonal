@@ -1,12 +1,12 @@
-import { ConfigurationModule } from '@libs/configuration';
 import { AppController } from './app.controller';
 import { Module } from '@nestjs/common';
 
 import { AppService } from './app.service';
+import { SqliteModule } from '@libs/database';
 
 @Module({
-  imports: [ConfigurationModule],
   controllers: [AppController],
+  imports: [SqliteModule],
   providers: [AppService],
 })
 export class AppModule { }

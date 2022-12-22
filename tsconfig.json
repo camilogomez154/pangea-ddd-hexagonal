@@ -23,6 +23,12 @@
       ],
       "@libs/configuration/*": [
         "libs/configuration/src/*"
+      ],
+      "@libs/database": [
+        "libs/database/src"
+      ],
+      "@libs/database/*": [
+        "libs/database/src/*"
       ]
     }
   }
