@@ -15,8 +15,9 @@ export class SqliteGenericRepository<T> extends AbstractGenericRepository<T> {
         return await this.repository.findOne({ where: { id } } as any);
     }
 
-    async create(item: T): Promise<T> {
-        return await this.repository.save(item);
+    async create(item: Partial<T>): Promise<T> {
+        const itemCreated = this.repository.create();
+        return await this.repository.save({ ...itemCreated, ...item });
     }
 
     async update(id: string, item: Partial<T>): Promise<void> {

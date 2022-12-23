@@ -29,6 +29,12 @@
       ],
       "@libs/database/*": [
         "libs/database/src/*"
+      ],
+      "@libs/providers": [
+        "libs/providers/src"
+      ],
+      "@libs/providers/*": [
+        "libs/providers/src/*"
       ]
     }
   }

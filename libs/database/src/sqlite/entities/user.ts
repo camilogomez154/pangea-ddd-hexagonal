@@ -21,7 +21,7 @@ export class User extends Timestamps implements IEntity {
     @Column({ unique: true })
     nickname!: string;
 
-    @Column()
+    @Column({ select: false })
     password!: string
 
 }
