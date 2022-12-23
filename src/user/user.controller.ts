@@ -4,7 +4,9 @@ import { User } from '@libs/database/sqlite/entities';
 import { SqliteService } from '@libs/database';
 
 import { CreateUserDto, UpdateUserDto } from './mappers';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('users')
 @Controller({
     version: 'v1',
     path: 'users',
@@ -19,7 +21,7 @@ export class UserController {
     }
 
     @Put(':id')
-    async update(@Param('id') id: string, item: UpdateUserDto): Promise<User> {
+    async update(@Param('id') id: string, @Body() item: UpdateUserDto): Promise<User> {
         await this.sqliteService.users.update(id, item);
         return await this.sqliteService.users.findOne(id);
     }

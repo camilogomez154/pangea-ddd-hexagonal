@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+import { hashSync, genSaltSync, getRounds } from 'bcrypt';
 
 import { SqliteGenericRepository } from '../utilities';
 import { IUserRepository } from '../interfaces';
@@ -7,7 +7,7 @@ import { User } from '../entities';
 export class UserRepository extends SqliteGenericRepository<User> implements IUserRepository {
 
     async create(item: Partial<User>): Promise<User> {
-        item.password = bcrypt.hashSync(item.password, "SecretPasswordString")
+        item.password = hashSync(item.password, genSaltSync(10));
         return super.create(item);
     }
 
